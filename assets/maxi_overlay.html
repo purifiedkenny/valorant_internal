@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin:0; padding:0; width:100%; height:100%; background:transparent; overflow:hidden; }
+  canvas { position:absolute; left:0; top:0; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+  const c = document.getElementById('c');
+  const x = c.getContext('2d');
+  const URL = 'http://127.0.0.1:47777/frame';
+
+  function resize(w, h) {
+    if (c.width !== w || c.height !== h) { c.width = w; c.height = h; }
+  }
+
+
+
+  const SEG = [[0,1],[1,2],[2,3],
+               [2,4],[4,5],[5,6],
+               [2,7],[7,8],[8,9],
+               [3,10],[10,11],[11,12],
+               [3,13],[13,14],[14,15]];
+
+
+  const LABELS = {
+    box:'Box', skeleton:'Skeleton', agent_name:'Names', health:'Health', radar:'Radar',
+    team_check:'Team Check', visible_check:'Visible Check', ignore_dormant:'Ignore Dormant',
+    show_bots:'Show Bots', view_angle:'View Angle', skills:'Ability ESP'
+  };
+
+  let frame = { w:0, h:0, actors:[], menu:{show:false, items:[]} };
+  let menuRects = [];
+
+  async function poll() {
+    try {
+      const r = await fetch(URL, { cache: 'no-store' });
+      frame = await r.json();
+    } catch (e) { /* no server */ }
+  }
+  setInterval(poll, 12);
+
+  function drawESP() {
+    x.clearRect(0, 0, c.width, c.height);
+    x.lineWidth = 1.5;
+    x.lineJoin = 'round';
+    for (const a of (frame.actors || [])) {
+      const b = a.bones;
+      if (!b || (b[0][0] === 0 && b[0][1] === 0)) continue;
+      x.strokeStyle = a.team === 1 ? '#00ffff' : (a.vis ? '#32ff64' : '#969696');
+      for (const s of SEG) {
+        const p = b[s[0]], q = b[s[1]];
+        if (!p || !q) continue;
+        x.beginPath(); x.moveTo(p[0], p[1]); x.lineTo(q[0], q[1]); x.stroke();
+      }
+      if (a.name) {
+        x.fillStyle = '#ffffff';
+        x.font = '14px sans-serif';
+        x.textAlign = 'center';
+        x.fillText(a.name, b[0][0], b[0][1] - 18);
+      }
+    }
+  }
+
+  function drawMenu() {
+    menuRects = [];
+    const m = frame.menu;
+    if (!m || !m.show) return;
+    const bx = 40, by = 40, bw = 260, rh = 26;
+    const bh = 40 + (m.items ? m.items.length : 0) * rh;
+    x.fillStyle = 'rgba(18,18,22,0.92)';
+    x.fillRect(bx, by, bw, bh);
+    x.strokeStyle = '#3a3a44';
+    x.lineWidth = 1;
+    x.strokeRect(bx, by, bw, bh);
+    x.fillStyle = '#e6e6e6';
+    x.font = 'bold 15px sans-serif';
+    x.textAlign = 'left';
+    x.fillText('MAXI  |  Discord Overlay', bx + 12, by + 26);
+    x.fillStyle = '#9a9aa5';
+    x.font = '11px sans-serif';
+    x.fillText('Press INS to toggle', bx + 12, by + 38);
+    let y = by + 52;
+    for (const it of (m.items || [])) {
+      x.fillStyle = it.v ? '#32ff64' : '#7a7a85';
+      x.font = '13px sans-serif';
+      const label = LABELS[it.k] || it.k;
+      x.fillText((it.v ? '[x] ' : '[ ] ') + label, bx + 14, y);
+      menuRects.push({ x: bx + 6, y: y - 14, w: bw - 12, h: rh, k: it.k, v: it.v });
+      y += rh;
+    }
+  }
+
+  c.addEventListener('mousedown', (e) => {
+    const r = c.getBoundingClientRect();
+    const mx = (e.clientX - r.left), my = (e.clientY - r.top);
+    for (const mr of menuRects) {
+      if (mx >= mr.x && mx <= mr.x + mr.w && my >= mr.y && my <= mr.y + mr.h) {
+        fetch('http://127.0.0.1:47777/set?k=' + encodeURIComponent(mr.k) + '&v=' + (mr.v ? '0' : '1')).catch(() => {});
+        break;
+      }
+    }
+  });
+
+  function loop() {
+    resize(frame.w, frame.h);
+    drawESP();
+    drawMenu();
+    requestAnimationFrame(loop);
+  }
+  loop();
+</script>
+</body>
+</html>

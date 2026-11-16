@@ -1,0 +1,15 @@
+#include "include/render/resource.h"
+
+IDR_FONT_INTER_SEMIBOLD   RCDATA "resources/assets/inter_semibold.ttf"
+IDR_FONT_INTER_MEDIUM     RCDATA "resources/assets/inter_medium.ttf"
+IDR_FONT_LOGOTYPE         RCDATA "resources/assets/logotype.ttf"
+IDR_FONT_SECTION_ICONS    RCDATA "resources/assets/section_icons.ttf"
+IDR_FONT_ICONS            RCDATA "resources/assets/icons.ttf"
+IDR_FONT_CHILD_ICONS      RCDATA "resources/assets/child_icons.ttf"
+IDR_FONT_KEYBIND_ICONS    RCDATA "resources/assets/keybind_icons.ttf"
+IDR_FONT_COLOR_ICONS      RCDATA "resources/assets/color_icons.ttf"
+
+IDR_IMAGE_LOGO            RCDATA "resources/assets/logo.png"
+IDR_IMAGE_BRAND_ICON      RCDATA "resources/assets/brand_icon.rgba"
+
+

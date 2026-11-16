@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Driver">
+      <UniqueIdentifier>{E12C6187-8B4A-11D0-8D11-00A0C91BC943}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{F12C6187-8B4A-11D0-8D11-00A0C91BC944}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MODEL">
+      <UniqueIdentifier>{F12C6187-8B4A-11D0-8D11-00A0C91BC945}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Engine">
+      <UniqueIdentifier>{F12C6187-8B4A-11D0-8D11-00A0C91BC946}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{F12C6187-8B4A-11D0-8D11-00A0C91BC947}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render">
+      <UniqueIdentifier>{A2D8C2E1-0C7E-4A9F-ABBE-8C1D5A1D9C10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render\elements">
+      <UniqueIdentifier>{36af109f-d65f-4196-87ed-6e936b9e6c40}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\console_logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\memory_config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\driver\driver_impl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\kernel_protocol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\navigation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\memory_map.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\application.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\model\uworld.cpp">
+      <Filter>Game\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\model\ulevel.cpp">
+      <Filter>Game\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\model\ugame_instance.cpp">
+      <Filter>Game\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\engine\core_engine.cpp">
+      <Filter>Game\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\render.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rd\imgui\imgui.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rd\imgui\imgui_draw.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rd\imgui\imgui_tables.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rd\imgui\imgui_widgets.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rd\imgui\backends\imgui_impl_dx11.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rd\imgui\backends\imgui_impl_win32.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\elements\button.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\elements\checkbox.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\elements\child.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\elements\colorpicker.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\elements\draw.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\elements\dropdown.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\elements\helpers.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\elements\keybind.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\elements\notify.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\elements\section.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\elements\slider.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\elements\textfield.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\elements\window.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\gui.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rd\imgui\imgui_freetype.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\maxi.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\core\iapplication.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\driver\idriver.hpp">
+      <Filter>Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game\kernel_protocol.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\logger.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\config.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game\model\model.hpp">
+      <Filter>Game\MODEL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game\model\ue_object.hpp">
+      <Filter>Game\MODEL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game\model\ulevel.hpp">
+      <Filter>Game\MODEL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game\model\ugame_instance.hpp">
+      <Filter>Game\MODEL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game\model\uworld.hpp">
+      <Filter>Game\MODEL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game\model\aactor.hpp">
+      <Filter>Game\MODEL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game\model\aplayer_controller.hpp">
+      <Filter>Game\MODEL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game\model\aplayer_camera_manager.hpp">
+      <Filter>Game\MODEL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game\model\fname_cache.hpp">
+      <Filter>Game\MODEL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game\model\fname_cache_context.hpp">
+      <Filter>Game\MODEL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game\engine\core_engine.hpp">
+      <Filter>Game\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\driver\driver_context.hpp">
+      <Filter>Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\driver_data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\render\render.hpp">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game\model\aplayer_state.hpp">
+      <Filter>Game\MODEL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game\model\ulocalplayer.hpp">
+      <Filter>Game\MODEL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game\model\adamage_handler.hpp">
+      <Filter>Game\MODEL</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game\combat.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\common.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resources.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
+
